@@ -1,25 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled, { keyframes } from "styled-components";
+
+const Wrapper = styled.div`
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+`;
+
+const rotationAnimation = keyframes`
+0%{
+  transfrorm:rotate(0deg);
+}
+50%{
+  border-radius:50%
+}
+100%{
+  transform:rotate(360deg);
+}`;
+
+const Emoji = styled.span`
+  font-size: 30px;
+`;
+const Box = styled.div`
+  width: 200px;
+  height: 200px;
+  background-color: tomato;
+  animation: ${rotationAnimation} 1s linear infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  ${Emoji} {
+    &:hover {
+      font-size: 100px;
+    }
+    &:active {
+      opacity: 0;
+    }
+  }
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Wrapper>
+      <Box>
+        <Emoji>🤣</Emoji>
+      </Box>
+    </Wrapper>
   );
 }
 
